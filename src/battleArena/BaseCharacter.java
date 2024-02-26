@@ -21,7 +21,11 @@ public abstract class BaseCharacter {
 		return livingPoints;
 	}
 	public void setLivingPoints(int livingPoints) {
-		this.livingPoints = livingPoints;
+		if (this.livingPoints >= 0) {
+			this.livingPoints = livingPoints;
+		}else {
+			this.livingPoints = 0;
+		}
 	}
 	
 	public abstract void getDamage(int Points);
