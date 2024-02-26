@@ -9,7 +9,7 @@ public abstract class BaseCharacter {
 	public BaseCharacter(String name, int livingPoints) {
 		super();
 		this.name = name;
-		this.livingPoints = livingPoints;
+		this.livingPoints = 100;
 	}
 	public String getName() {
 		return name;
