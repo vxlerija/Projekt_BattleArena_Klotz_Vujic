@@ -10,26 +10,25 @@ public class Dragon extends BaseCharacter {
 	}
 
 	@Override
-	public void getDamage(int Points) {
-		// TODO Auto-generated method stub
+	public void getDamage(int Points) {	
 		
 	}
 
 	@Override
 	public void attack(BaseCharacter enemy) {
-		ThreadLocalRandom.current().nextInt(20, 25 + 1);
-		
-	}
+		int points = ThreadLocalRandom.current().nextInt(20, 25 + 1);
+		enemy.setLivingPoints(getLivingPoints()-points);
+			
+		}
+			
 
 	@Override
 	public boolean specialAbilityActive() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean specialAbilityDeactive() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
