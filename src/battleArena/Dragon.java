@@ -17,7 +17,7 @@ public class Dragon extends BaseCharacter {
 	@Override
 	public void attack(BaseCharacter enemy) {
 		int points = ThreadLocalRandom.current().nextInt(20, 25 + 1);
-		enemy.setLivingPoints(getLivingPoints()-points);
+		enemy.getDamage(points);
 			
 		}
 			
