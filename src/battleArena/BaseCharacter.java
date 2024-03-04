@@ -39,7 +39,7 @@ public abstract class BaseCharacter {
 		}
 	}
 	
-	public abstract void getDamage(int Points);
+	public abstract void getDamage(int points);
 	
 	public abstract void attack(BaseCharacter enemy);
 	
