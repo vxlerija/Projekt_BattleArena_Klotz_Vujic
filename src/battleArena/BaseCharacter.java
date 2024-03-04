@@ -3,13 +3,15 @@ public abstract class BaseCharacter {
 	
 	private String name;
 	private int livingPoints;
+	private boolean specialAbility;
 	
 	
 	
-	public BaseCharacter(String name, int livingPoints) {
+	public BaseCharacter(String name, int livingPoints, boolean specialAbility) {
 		super();
 		this.name = name;
 		this.livingPoints = 100;
+		this.specialAbility =false;
 	}
 	public String getName() {
 		return name;
@@ -20,6 +22,15 @@ public abstract class BaseCharacter {
 	public int getLivingPoints() {
 		return livingPoints;
 	}
+	
+	
+	public boolean isSpecialAbility() {
+		return specialAbility;
+	}
+	public void setSpecialAbility(boolean specialAbility) {
+		this.specialAbility = specialAbility;
+	}
+	
 	public void setLivingPoints(int livingPoints) {
 		if (this.livingPoints >= 0) {
 			this.livingPoints = livingPoints;
