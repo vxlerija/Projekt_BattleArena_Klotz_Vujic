@@ -22,7 +22,9 @@ public class Dwarf extends BaseCharacter{
 
 	@Override
 	public boolean specialAbilityActive() {
-		return false;
+		if(getLivingPoints() < 50) {
+		}
+		return true;
 	}
 
 	@Override
@@ -30,6 +32,19 @@ public class Dwarf extends BaseCharacter{
 		return false;
 	}
 	
+	public void specialAbility(int points) {
+		int ranNumber = ThreadLocalRandom.current().nextInt(1, 10 + 1);
+		if(getLivingPoints() <= 50 && getLivingPoints() > 20 && 1 <= ranNumber && ranNumber >= 3) {
+			points = points*2;
+		}else if(getLivingPoints() <= 20 && getLivingPoints() > 10 && 1 <= ranNumber && ranNumber >= 5) {
+			points = points*2;
+		}else if(getLivingPoints() <= 10 && getLivingPoints() > 0 && 1 <= ranNumber && ranNumber >= 7) {
+			points = points*2;
+		}else if(getLivingPoints() <= 50 && getLivingPoints() > 0 && 6 <= ranNumber && ranNumber >= 10) {
+			points = points/2;
+			}
+		
+	}
 	
 	
 	
