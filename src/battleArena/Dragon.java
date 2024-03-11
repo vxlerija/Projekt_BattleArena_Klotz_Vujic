@@ -10,7 +10,6 @@ public class Dragon extends BaseCharacter {
 
 	public Dragon(String name, int livingPoints) {
 		super(name, livingPoints);
-		this.damagePoints = ThreadLocalRandom.current().nextInt(20,25);
 	}
 	
 
