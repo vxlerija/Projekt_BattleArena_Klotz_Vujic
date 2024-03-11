@@ -8,7 +8,7 @@ public class Dragon extends BaseCharacter {
 
 
 
-	public Dragon(String name, int livingPoints,  int damagePoints) {
+	public Dragon(String name, int livingPoints) {
 		super(name, livingPoints);
 		this.damagePoints = ThreadLocalRandom.current().nextInt(20,25);
 	}
@@ -43,6 +43,7 @@ public class Dragon extends BaseCharacter {
 			this.setSpecialAbility(true);
 		} else {
 			System.out.println("Special ability is already active!");
+			return false;
 		}
 	}
 	
