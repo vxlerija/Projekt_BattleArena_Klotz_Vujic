@@ -7,7 +7,7 @@ public abstract class BaseCharacter {
 	
 	
 	
-	public BaseCharacter(String name, int livingPoints, boolean specialAbility) {
+	public BaseCharacter(String name, int livingPoints) {
 		super();
 		this.name = name;
 		this.livingPoints = 100;

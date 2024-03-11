@@ -8,8 +8,8 @@ public class Dragon extends BaseCharacter {
 
 
 
-	public Dragon(String name, int livingPoints, boolean specialAbility, int damagePoints) {
-		super(name, livingPoints, specialAbility);
+	public Dragon(String name, int livingPoints,  int damagePoints) {
+		super(name, livingPoints);
 		this.damagePoints = ThreadLocalRandom.current().nextInt(20,25);
 	}
 	
