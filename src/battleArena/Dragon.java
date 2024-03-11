@@ -4,10 +4,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Dragon extends BaseCharacter {
 
-	public Dragon(String name, int livingPoints) {
+	private int damagePoints;
+
+
+
+	public Dragon(String name, int livingPoints, boolean specialAbility, int damagePoints) {
 		super(name, livingPoints, specialAbility);
-		
+		this.damagePoints = ThreadLocalRandom.current().nextInt(20,25);
 	}
+	
 
 	@Override
 	public void getDamage(int Points) {	
@@ -32,23 +37,36 @@ public class Dragon extends BaseCharacter {
 
 	@Override
 	public boolean specialAbilityActive() {
-		return false;
-	}
-
-	@Override
-	public boolean specialAbilityDeactive() {
-		return false;
-	}
-	
-	 public void activateSpecialAbilityFly() {
 		if(!this.isSpecialAbility()==true) {
-			int dmg = attackDamage - calculateMalus();
-			int currentLifePoints = this.getLifePoints()+10;
+			int dmg = damagePoints - calculateMalus();
+			int currentLivingPoints = this.getLivingPoints()+10;
 			this.setSpecialAbility(true);
 		} else {
 			System.out.println("Special ability is already active!");
 		}
 	}
+	
+
+	@Override
+	public boolean specialAbilityDeactive() {
+		if(!this.isSpecialAbility()==true) {
+			damagePoints = ThreadLocalRandom.current().nextInt(20,25);
+			int currentLifePoints = this.getLivingPoints()-10;
+			this.setSpecialAbility(false);
+		} else {
+			System.out.println("Special ability is already active!");
+		}
+	}
+
+
+	
+	private int calculateMalus() {
+		int malus = ThreadLocalRandom.current().nextInt(5,10);
+		return malus;
+	}
+	
+	
+		
 	
 	
 	
