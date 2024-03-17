@@ -14,6 +14,9 @@ public class Dragon extends BaseCharacter {
 	
 
 	@Override
+	/**
+	 * calculates damage
+	 */
 	public void getDamage(int Points) {	
 		int damagePoints = ThreadLocalRandom.current().nextInt(5, 10 + 1);
 		if(specialAbilityActive() == true) {
@@ -23,6 +26,9 @@ public class Dragon extends BaseCharacter {
 		
 	}
 
+	/**
+	 * method to attack the dragons enemy
+	 */
 	@Override
 	public void attack(BaseCharacter enemy) {
 		int points = ThreadLocalRandom.current().nextInt(20, 25 + 1);
@@ -34,6 +40,9 @@ public class Dragon extends BaseCharacter {
 		}
 			
 
+	/**
+	 * activates the dragons special ability
+	 */
 	@Override
 	public boolean specialAbilityActive() {
 	    if (!this.isSpecialAbility()) {
@@ -48,6 +57,9 @@ public class Dragon extends BaseCharacter {
 	}
 	
 
+	/**
+	 * deactivates special ability
+	 */
 	@Override
 	public boolean specialAbilityDeactive() {
 	    if (this.isSpecialAbility()) {
@@ -62,7 +74,10 @@ public class Dragon extends BaseCharacter {
 	}
 
 
-	
+	/**
+	 * calculates malus for damage
+	 * @return
+	 */
 	private int calculateMalus() {
 		int malus = ThreadLocalRandom.current().nextInt(5,10);
 		return malus;
