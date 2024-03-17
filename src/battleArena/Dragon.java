@@ -15,9 +15,9 @@ public class Dragon extends BaseCharacter {
 
 	@Override
 	public void getDamage(int Points) {	
-		int points = ThreadLocalRandom.current().nextInt(5, 10 + 1);
+		int damagePoints = ThreadLocalRandom.current().nextInt(5, 10 + 1);
 		if(specialAbilityActive() == true) {
-			this.setLivingPoints(getLivingPoints()- points);
+			this.setLivingPoints(getLivingPoints()- damagePoints);
 		}
 		
 		
@@ -36,26 +36,29 @@ public class Dragon extends BaseCharacter {
 
 	@Override
 	public boolean specialAbilityActive() {
-		if(!this.isSpecialAbility()==true) {
-			int dmg = damagePoints - calculateMalus();
-			int currentLivingPoints = this.getLivingPoints()+10;
-			this.setSpecialAbility(true);
-		} else {
-			System.out.println("Special ability is already active!");
-			return false;
-		}
+	    if (!this.isSpecialAbility()) {
+	        damagePoints = damagePoints - calculateMalus();
+	        this.setLivingPoints(getLivingPoints()+10);
+	        this.setSpecialAbility(true);
+	        return true; 
+	    } else {
+	        System.out.println("Special ability is already active!");
+	        return false; 
+	    }
 	}
 	
 
 	@Override
 	public boolean specialAbilityDeactive() {
-		if(!this.isSpecialAbility()==true) {
-			damagePoints = ThreadLocalRandom.current().nextInt(20,25);
-			int currentLifePoints = this.getLivingPoints()-10;
-			this.setSpecialAbility(false);
-		} else {
-			System.out.println("Special ability is already active!");
-		}
+	    if (this.isSpecialAbility()) {
+	        damagePoints = ThreadLocalRandom.current().nextInt(20, 25);
+	        this.setLivingPoints(getLivingPoints()-10);
+	        this.setSpecialAbility(false);
+	        return true; 
+	    } else {
+	        System.out.println("Special ability is not active!");
+	        return false; 
+	    }
 	}
 
 
