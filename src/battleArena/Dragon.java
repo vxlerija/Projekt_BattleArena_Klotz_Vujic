@@ -45,12 +45,12 @@ public class Dragon extends BaseCharacter {
 	 */
 	@Override
 	public boolean specialAbilityActive() {
-	    if (!this.isSpecialAbility()) {
+	    if(!this.isSpecialAbility()) {
 	        damagePoints = damagePoints - calculateMalus();
 	        this.setLivingPoints(getLivingPoints()+10);
 	        this.setSpecialAbility(true);
 	        return true; 
-	    } else {
+	    }else {
 	        System.out.println("Special ability is already active!");
 	        return false; 
 	    }
