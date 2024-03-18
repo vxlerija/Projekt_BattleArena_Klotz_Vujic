@@ -17,7 +17,7 @@ public class Dragon extends BaseCharacter {
 	/**
 	 * calculates damage
 	 */
-	public void getDamage(int Points) {	
+	public void getDamage(int points) {	
 		int damagePoints = ThreadLocalRandom.current().nextInt(5, 10 + 1);
 		if(specialAbilityActive() == true) {
 			this.setLivingPoints(getLivingPoints()- damagePoints);
