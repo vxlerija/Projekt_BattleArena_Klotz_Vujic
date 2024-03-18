@@ -7,7 +7,7 @@ public class BattleArena {
 	private BaseCharacter player2;
 	private BaseCharacter winner;
 	
-	public void battleArena(BaseCharacter player1, BaseCharacter player2) {
+	public BattleArena(BaseCharacter player1, BaseCharacter player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 		this.winner = null;

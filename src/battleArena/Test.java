@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Test {
 	
-	public static BaseCharacter c1 = null;
-	public static BaseCharacter c2 = null;
+	public static BaseCharacter player1 = null;
+	public static BaseCharacter player2 = null;
 	static String name = "";
 	static int choice = 0;
 	
@@ -20,9 +20,9 @@ public class Test {
 	}
 	
 	public static String enterCharacterName(Scanner sc) {
-		System.out.println("Name your" + choice + ": ");
+		System.out.println("Name your Character" + ": ");
 			name = "";
-			do {
+			do { 
 				name = sc.nextLine();
 			}while (name.equals(""));
 			return name;
@@ -60,14 +60,14 @@ public static void main(String[] args) {
 		do {
 			choice = input(sc);
 			name = enterCharacterName(sc);
-			c1 = createCharakter(choice,name);
+			player1 = createCharakter(choice,name);
 			choice = input(sc);
 			name = enterCharacterName(sc);
-			c2 = createCharakter(choice,name);
-		} while (c1.equals(null) || c2.equals(null));
+			player2 = createCharakter(choice,name);
+		} while (player1.equals(null) || player2.equals(null));
 		
-		BattleArena arena = new BattleArena(c1, c2);
-		arena.attacker();
+		BattleArena arena = new BattleArena(player1, player2);
+		arena.selectStarter();
 		int inputCharacter;
 		do {
 			inputCharacter = inputCharacter(sc, arena);
