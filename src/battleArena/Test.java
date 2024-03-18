@@ -55,7 +55,7 @@ public class Test {
 	
 public static void main(String[] args) {
 		
-		int input;
+		
 		Scanner sc = new Scanner(System.in);
 		do {
 			choice = input(sc);
