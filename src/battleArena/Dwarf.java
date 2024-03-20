@@ -4,31 +4,44 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Dwarf extends BaseCharacter{
 
-	public Dwarf(String name, int livingPoints) {
-		super(name, livingPoints);
+	public Dwarf(String name) {
+		super(name);
 	}
 
+	
+	
 	/**
 	 * calculates damage of Dwarf
 	 */
 	@Override
 	public void getDamage(int points) {
-	setLivingPoints(getLivingPoints() - points);
+		this.livingPoints = this.livingPoints - points;
+		if(this.getLivingPoints() < 0) {
+			this.setLivingPoints(0);
+		}
 		
 	}
-
+	
+	
 	/**
-	 * method to attack the dwarfs enemy
+	 * attack method for Dwarf which refers to the method attackPossibilities
 	 */
 	@Override
 	public void attack(BaseCharacter enemy) {
 		int points = ThreadLocalRandom.current().nextInt(15, 25 +1);
+		if(this.isSpecialAbility()) {
+			if(this.attackPossibilities()== true) {
+				points = points*2;
+			}else {
+				points = points /2;
+			}
+		}
 		enemy.getDamage(points);
 	}
 
 	
 	/**
-	 * activates special ability of dwarf
+	 * activates special ability of Dwarf
 	 */
 	@Override
 	public boolean specialAbilityActive() {
@@ -49,18 +62,20 @@ public class Dwarf extends BaseCharacter{
 	 * calculates probability of the success of the attack
 	 * @param points
 	 */
-	public void specialAbility(int points) {
-		int ranNumber = ThreadLocalRandom.current().nextInt(1, 10 + 1);
-		if(getLivingPoints() <= 50 && getLivingPoints() > 20 && 1 <= ranNumber && ranNumber >= 3) {
-			points = points*2;
-		}else if(getLivingPoints() <= 20 && getLivingPoints() > 10 && 1 <= ranNumber && ranNumber >= 5) {
-			points = points*2;
-		}else if(getLivingPoints() <= 10 && getLivingPoints() > 0 && 1 <= ranNumber && ranNumber >= 7) {
-			points = points*2;
-		}else if(getLivingPoints() <= 50 && getLivingPoints() > 0 && 6 <= ranNumber && ranNumber >= 10) {
-			points = points/2;
-			}
+	public boolean attackPossibilities() {
+		int points = ThreadLocalRandom.current().nextInt (1, 10 + 1);
+		if((this.getLivingPoints() <= 50) && (points <= 3)) {
+		return true;
+		}else if ((this.getLivingPoints() <- 20) && (points <= 5)){
+		return true;
+		}else if ((this.getLivingPoints() <- 10) && (points <=7)) {
+			return true;
+		}
+		return false;
 		
+		
+		
+	
 	}
 	
 	

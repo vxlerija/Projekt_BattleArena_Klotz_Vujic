@@ -2,12 +2,12 @@ package battleArena;
 public abstract class BaseCharacter {
 	
 	private String name;
-	private int livingPoints;
+	protected int livingPoints;
 	private boolean specialAbility;
 	
 	
 	
-	public BaseCharacter(String name, int livingPoints) {
+	public BaseCharacter(String name) {
 		super();
 		this.name = name;
 		this.livingPoints = 100;

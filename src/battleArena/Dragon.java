@@ -8,8 +8,8 @@ public class Dragon extends BaseCharacter {
 
 
 
-	public Dragon(String name, int livingPoints) {
-		super(name, livingPoints);
+	public Dragon(String name) {
+		super(name);
 	}
 	
 
@@ -19,9 +19,8 @@ public class Dragon extends BaseCharacter {
 	 */
 	public void getDamage(int points) {	
 		int damagePoints = ThreadLocalRandom.current().nextInt(5, 10 + 1);
-		if(specialAbilityActive() == true) {
-			this.setLivingPoints(getLivingPoints()- damagePoints);
-		}
+		this.setLivingPoints(getLivingPoints()- damagePoints);
+		
 		
 		
 	}
@@ -32,7 +31,7 @@ public class Dragon extends BaseCharacter {
 	@Override
 	public void attack(BaseCharacter enemy) {
 		int points = ThreadLocalRandom.current().nextInt(20, 25 + 1);
-		if(specialAbilityActive() == true) {
+		if(this.isSpecialAbility() == true) {
 			points = points - ThreadLocalRandom.current().nextInt(5, 10 + 1);
 		}
 		enemy.getDamage(points);
