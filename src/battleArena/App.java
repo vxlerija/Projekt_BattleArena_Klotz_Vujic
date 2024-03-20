@@ -2,7 +2,7 @@ package battleArena;
 
 import java.util.Scanner;
 
-public class Test {
+public class App {
 	
 	
 	
